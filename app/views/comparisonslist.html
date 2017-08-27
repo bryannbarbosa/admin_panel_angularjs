@@ -1,0 +1,35 @@
+<div class "row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <h3 class="text-center" style="margin-top: 14vh; margin-bottom: 0.5em;">Comparações</h3>
+    <div ng-repeat="object in comparisons">
+      <div ng-repeat="comparison in object.comparisons">
+        <div class="form-group">
+          <img class="img-responsive" ngf-src="file || comparison.image_comparison_url" />
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" ng-model="comparison.comparison_content">{{ comparison.comparison_content }}</textarea>
+        </div>
+        <div class="form-group">
+          <div class="alert alert-info">
+            Comparação do {{ comparison.exercise_name }} em {{ comparison.category_name }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="btn btn-primary btn-block btn-file">
+            Alterar Imagem <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" style="display: none;">
+          </label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success btn-block" ng-click="updateComparison(file, comparison)">Salvar</button>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-danger btn-block" ng-click="removeComparison(comparison.id)">Remover Comparação</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" ng-if="comparisons.response.comparisons.length == 0">
+      <p>
+        Não há comparações disponíveis
+      </p>
+    </div>
+  </div>

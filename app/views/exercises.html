@@ -1,0 +1,32 @@
+<div class "row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h3 class="text-center" style="margin-top: 25vh; margin-bottom: 0.5em;">Inserir Exercício</h3>
+    <div ng-repeat="object in exercises">
+      <div>
+        <div class="list-group">
+          <span ng-repeat="exercise in object.exercises" ng-init="edit = true" ng-show="edit" href="" class="list-group-item">
+            <input type="text" ng-model="exercise.exercise_name" style="width: 60%;" value="{{ exercise.exercise_name }}" />
+          <span class="pull-right">
+          <button ng-click="removeExercise(exercise.id)" class="btn btn-xs btn-danger">Remover</button>
+            <button ng-click="updateExercise(exercise)" class="btn btn-xs btn-success">Salvar</button>
+            <button class="btn btn-xs btn-info">{{ exercise.category_name }}</button>
+          </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <form name="exerciseform">
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="exercise.exercise_name" placeholder="Nome do Exercício" required />
+      </div>
+      <div class="form-group" ng-repeat="object in categories">
+        <select class="form-control" ng-disabled="!exercise.exercise_name" ng-model="exercise.category" ng-options="category.category_name for category in object.categories" required>
+        <option selected disabled value="">Selecione sua categoria</option>
+      </select>
+      </div>
+      <div class="form-group text-center">
+        <a href="" class="btn btn-primary" ng-disabled="!exerciseform.$valid" ng-click="insertExercise(exercise)">Inserir Exercício</a>
+      </div>
+    </form>
+  </div>
+</div>

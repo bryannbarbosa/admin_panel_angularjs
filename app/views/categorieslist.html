@@ -1,0 +1,23 @@
+<div ng-repeat="object in categories">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <h3 class="text-center" style="margin-top: 5em;">Categorias</h3>
+      <div ng-repeat="category in object.categories" ng-init="edit = true" ng-show="edit" href="">
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="category.category_name" value="{{ category.category_name }}" />
+        </div>
+        <div class="form-group">
+          <textarea ng-model="category.category_description" class="form-control">{{ category.category_name }}</textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success btn-block" ng-click="updateCategory(category)">Salvar</button>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-danger btn-block" ng-click="removeCategory(category.id)">Remover Categoria</button>
+        </div>
+        <hr />
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+body {
+  font-family: 'PT Sans', sans-serif !important;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+input {
+  border:none;
+  background-color: transparent;
+}
+
+textarea:focus, input:focus{
+    outline: none !important;
+}

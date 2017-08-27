@@ -1,0 +1,38 @@
+<div class "row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <h3 class="text-center" style="margin-top: 14vh; margin-bottom: 0.5em;">Passos</h3>
+    <div ng-repeat="object in steps">
+      <div ng-repeat="step in object.steps">
+        <div class="form-group">
+          <img class="img-responsive" ngf-src="file || step.image_step_url" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="step.step_name">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" ng-model="step.step_content"></textarea>
+        </div>
+        <div class="form-group">
+          <div class="alert alert-info">
+            Passo do {{ step.exercise_name }} em {{ step.category_name }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="btn btn-primary btn-block btn-file">
+            Alterar Imagem <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" style="display: none;">
+          </label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success btn-block" ng-click="updateStep(file, step)">Salvar</button>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-danger btn-block" ng-click="removeStep(step.id)">Remover Comparação</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" ng-if="steps.response.steps.length == 0">
+      <p>
+        Não há passos disponíveis
+      </p>
+    </div>
+  </div>
