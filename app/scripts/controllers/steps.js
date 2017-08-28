@@ -16,7 +16,6 @@ angular.module('maikeApp')
     });
 
     $scope.insertStep = function(file, step) {
-      console.log(step);
       Upload.upload({
         url: 'http://localhost:4000/api/steps',
         data: {

@@ -36,8 +36,8 @@ angular.module('maikeApp')
     }
     $scope.updateCategory = function(category) {
 
-      let id = category.id;
-      let data = {
+      var id = category.id;
+      var data = {
         category_name: category.category_name,
         category_description: category.category_description
       };

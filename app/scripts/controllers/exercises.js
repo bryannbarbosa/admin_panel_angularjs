@@ -28,7 +28,7 @@ angular.module('maikeApp')
     }
 
     $scope.insertExercise = function(exercise) {
-      let data = {
+      var data = {
         id_category: exercise.category.id,
         exercise_name: exercise.exercise_name
       };
@@ -43,8 +43,8 @@ angular.module('maikeApp')
 
     $scope.updateExercise = function(exercise) {
 
-      let id = exercise.id;
-      let data = {
+      var id = exercise.id;
+      var data = {
         exercise_name: exercise.exercise_name
       };
       maikeAPI.connect('exercises/' + id).update(data, function(resp, headers) {
